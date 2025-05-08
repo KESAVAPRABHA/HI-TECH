@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hi-tech-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hi-tech-app
+  template:
+    metadata:
+      labels:
+        app: hi-tech-app
+    spec:
+      containers:
+      - name: hi-tech-app
+        image: kesavaprabhal/hi-tech-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
